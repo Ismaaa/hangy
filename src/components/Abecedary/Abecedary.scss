@@ -1,0 +1,15 @@
+.Abecedary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 980px;
+
+  // tmp
+  margin-top: 200px;
+}
+
+.Abecedary__keyboardLine {
+  display: flex;
+  flex-wrap: wrap;
+}

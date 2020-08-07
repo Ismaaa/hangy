@@ -1,0 +1,18 @@
+:root {
+  // typography
+  --font-size: 15px;
+
+  // colors
+  --color-primary: hsl(180, 66%, 49%);
+  --color-primary-light: hsl(180, 58%, 71%);
+
+  --color-secondary: hsl(258, 27%, 26%);
+  --color-secondary-light: hsl(257, 7%, 63%);
+  --color-secondary-dark: hsl(255, 11%, 22%);
+  --color-secondary-darker: hsl(260, 8%, 14%);
+
+  --color-white: white;
+  --color-warning: hsl(0, 87%, 67%);
+  --color-gray: hsl(0, 0%, 75%);
+  --color-gray-dark: #9999a3;
+}

@@ -1,13 +1,23 @@
 import React from 'react';
+import Character from '../Character';
 
-const ABECEDARY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const ABECEDARY = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
 
-const Abecedary = () => (
-  <div className="Abecedary">
-    {ABECEDARY.split('').map((character) => (
-      <span className="Abecedary__character">{character}</span>
-    ))}
-  </div>
-);
+const Abecedary = () => {
+  const handleCharacterClick = (character) => {
+    console.log(character);
+  };
+  return (
+    <div className="Abecedary">
+      {ABECEDARY.map((keyboardLine, key) => (
+        <div key={key} className="Abecedary__keyboardLine">
+          {keyboardLine.split('').map((character) => (
+            <Character value={character} />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default Abecedary;
