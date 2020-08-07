@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const Hangy = () => <div className="Hangy">Hang man Game</div>
+const Hangy = () => <div className="Hangy">Hang man Game</div>;
 
-export default Hangy
+export default Hangy;

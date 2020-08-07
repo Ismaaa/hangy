@@ -1,3 +1,3 @@
-import Hangy from "./Hangy";
+import Hangy from './Hangy';
 
-export default Hangy
+export default Hangy;
