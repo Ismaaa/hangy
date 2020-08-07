@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hangy from "./components/Hangy/Hangy";
+import Hangy from "./components/Hangy";
 
 ReactDOM.render(
   <React.StrictMode>
