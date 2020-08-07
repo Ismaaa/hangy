@@ -1,5 +1,12 @@
 import React from 'react';
+import Hangman from '../Hangman';
+import Abecedary from '../Abecedary';
 
-const Hangy = () => <div className="Hangy">Hang man Game</div>;
+const Hangy = () => (
+  <div className="Hangy">
+    <Hangman />
+    <Abecedary />
+  </div>
+);
 
 export default Hangy;
