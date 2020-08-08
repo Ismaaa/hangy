@@ -3,13 +3,13 @@ import { normalizeText } from 'normalize-text';
 import Character from '../Character';
 
 const ABECEDARY = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+const FLATTEN_ABECEDARY = ABECEDARY.join('');
 
 const Keyboard = () => {
   const [usedCharacters, setUsedCharacters] = useState([]);
 
-  console.log(usedCharacters);
-
-  const addCharacterToList = (character) => {
+  const addCharacterToList = (character = null) => {
+    if (!FLATTEN_ABECEDARY.includes(character)) return;
     if (usedCharacters.includes(character)) return;
 
     setUsedCharacters((previousUsedCharacters) => [
