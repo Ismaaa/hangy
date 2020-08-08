@@ -1,6 +1,6 @@
 import React from 'react';
 import Hangman from '../Hangman';
-import Abecedary from '../Abecedary';
+import Abecedary from '../Keyboard';
 
 const Hangy = () => (
   <div className="Hangy">
