@@ -19,6 +19,13 @@ const GameOver = () => {
       >
         {gameWon ? 'YOU WON' : 'YOU LOST'}
       </h1>
+      <button
+        type="button"
+        className="GameOver__button"
+        onClick={() => window.location.reload()}
+      >
+        Play Again
+      </button>
     </div>
   );
 };

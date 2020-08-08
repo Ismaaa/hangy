@@ -1,6 +1,7 @@
 .GameOver {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   width: 65%;
   height: 240px;
@@ -27,4 +28,16 @@
   &--warning {
     color: var(--color-warning);
   }
+}
+
+.GameOver__button {
+  background-color: var(--color-warning);
+  padding: 15px 30px;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
 }
