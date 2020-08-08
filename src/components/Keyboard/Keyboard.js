@@ -38,6 +38,7 @@ const Keyboard = () => {
         <div key={keyboardLine} className="Keyboard__keyboardLine">
           {keyboardLine.split('').map((character) => (
             <Character
+              key={character}
               value={character}
               usedCharacters={usedCharacters}
               addCharacterToList={addCharacterToList}
