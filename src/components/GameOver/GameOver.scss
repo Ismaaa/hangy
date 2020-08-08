@@ -1,0 +1,30 @@
+.GameOver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  height: 240px;
+  margin: 60px auto 0;
+  border-radius: 15px;
+
+  &--primary {
+    background-color: var(--color-primary);
+  }
+
+  &--warning {
+    background-color: var(--color-primary);
+  }
+}
+
+.GameOver__title {
+  font-size: 60px;
+  font-weight: 700;
+
+  &--secondary {
+    color: var(--color-secondary);
+  }
+
+  &--warning {
+    color: var(--color-warning);
+  }
+}
