@@ -1,6 +1,6 @@
 // constants
 const INITIAL_STATE = {
-  word: 'ISMAIL',
+  word: 'HIPPOPOTOMONSTROSESQUIPPEDALIOPHOBIE',
   usedCharacters: [],
   gameOver: false,
   gameWon: null,
