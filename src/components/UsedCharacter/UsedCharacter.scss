@@ -1,0 +1,12 @@
+.UsedCharacter {
+  font-size: 50px;
+  font-weight: 700;
+
+  &--primary {
+    color: var(--color-primary);
+  }
+
+  &--warning {
+    color: var(--color-warning);
+  }
+}

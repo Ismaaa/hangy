@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { normalizeText } from 'normalize-text';
 import { useDispatch, useSelector } from 'react-redux';
-import Character from '../Character';
+import KeyboardTile from '../KeyboardTile';
 import { addCharacter } from '../../store/ducks/game';
 
 const ABECEDARY = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
@@ -37,7 +37,7 @@ const Keyboard = () => {
       {ABECEDARY.map((keyboardLine) => (
         <div key={keyboardLine} className="Keyboard__keyboardLine">
           {keyboardLine.split('').map((character) => (
-            <Character
+            <KeyboardTile
               key={character}
               value={character}
               addCharacterToList={addCharacterToList}

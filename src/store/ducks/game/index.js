@@ -1,10 +1,13 @@
 // constants
 const INITIAL_STATE = {
-  word: null,
+  word: 'ISMAIL',
   usedCharacters: [],
+  gameOver: false,
+  gameWon: null,
 };
 
 const ADD_CHARACTER = 'ADD_CHARACTER';
+const GAME_OVER = 'GAME_OVER';
 
 // reducer
 export default function reducer(state = INITIAL_STATE, action) {
@@ -17,6 +20,8 @@ export default function reducer(state = INITIAL_STATE, action) {
 
       return { ...state, usedCharacters };
     }
+    case GAME_OVER:
+      return { ...state, gameOver: true, gameWon: action.payload };
     default:
       return state;
   }
@@ -28,4 +33,27 @@ export const addCharacter = (payload) => async (dispatch) => {
     type: ADD_CHARACTER,
     payload,
   });
+};
+
+// middleware
+export const gameMiddleware = ({ dispatch, getState }) => (next) => (
+  action,
+) => {
+  next(action);
+
+  if (action.type === ADD_CHARACTER) {
+    const { word, usedCharacters } = getState().game;
+    const matches = [];
+
+    word.split('').forEach((character) => {
+      matches.push(usedCharacters.includes(character));
+    });
+
+    if (matches.every((match) => match === true)) {
+      dispatch({
+        type: GAME_OVER,
+        payload: true,
+      });
+    }
+  }
 };
