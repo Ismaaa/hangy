@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const Character = ({ value, usedCharacters, addCharacterToList }) => {
+const Character = ({ value, addCharacterToList }) => {
+  const { game } = useSelector((store) => store);
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
-    if (usedCharacters.includes(value)) {
-      setIsDisabled(true);
-    } else {
-      setIsDisabled(false);
-    }
-  }, [value, usedCharacters]);
-
-  const handleCharacterClick = () => {
-    setIsDisabled(true);
-    addCharacterToList(value);
-  };
+    if (game.usedCharacters.includes(value)) setIsDisabled(true);
+  }, [game]);
 
   return (
-    <div
-      onClick={() => handleCharacterClick(value)}
+    <button
+      type="button"
+      onClick={() => addCharacterToList(value)}
       className={`Character ${isDisabled ? 'Character--disabled' : ''}`}
     >
       {value}
-    </div>
+    </button>
   );
 };
 
 Character.propTypes = {
   value: PropTypes.string.isRequired,
-  usedCharacters: PropTypes.array.isRequired,
+  addCharacterToList: PropTypes.func.isRequired,
 };
 
 export default Character;

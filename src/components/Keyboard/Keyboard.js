@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { normalizeText } from 'normalize-text';
+import { useDispatch, useSelector } from 'react-redux';
 import Character from '../Character';
+import { addCharacter } from '../../store/ducks/game';
 
 const ABECEDARY = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
 const FLATTEN_ABECEDARY = ABECEDARY.join('');
 
 const Keyboard = () => {
-  const [usedCharacters, setUsedCharacters] = useState([]);
+  const dispatch = useDispatch();
+  const { usedCharacters } = useSelector((store) => store.game);
 
-  const addCharacterToList = (character = null) => {
+  const addCharacterToList = (character) => {
     if (!FLATTEN_ABECEDARY.includes(character)) return;
     if (usedCharacters.includes(character)) return;
 
-    setUsedCharacters((previousUsedCharacters) => [
-      ...previousUsedCharacters,
-      character,
-    ]);
+    dispatch(addCharacter(character));
   };
 
   const handleKeyPress = (event) => {
@@ -40,7 +40,6 @@ const Keyboard = () => {
             <Character
               key={character}
               value={character}
-              usedCharacters={usedCharacters}
               addCharacterToList={addCharacterToList}
             />
           ))}
