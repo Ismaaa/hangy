@@ -7,13 +7,11 @@ const Word = () => {
 
   return (
     <div className="Word">
-      {word.split('').map((character, index) => {
-        return (
-          <span key={`${character}${index}`} className="Word__character">
-            {usedCharacters.includes(character) ? character : '_'}
-          </span>
-        );
-      })}
+      {word.split('').map((character, index) => (
+        <span key={`${character}${index}`} className="Word__character">
+          {usedCharacters.includes(character) ? character : '_'}
+        </span>
+      ))}
     </div>
   );
 };
