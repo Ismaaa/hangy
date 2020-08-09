@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -6,11 +7,13 @@ const Word = () => {
 
   return (
     <div className="Word">
-      {word.split('').map((character) => (
-        <span className="Word__character">
-          {usedCharacters.includes(character) ? character : '_'}
-        </span>
-      ))}
+      {word.split('').map((character, index) => {
+        return (
+          <span key={`${character}${index}`} className="Word__character">
+            {usedCharacters.includes(character) ? character : '_'}
+          </span>
+        );
+      })}
     </div>
   );
 };
