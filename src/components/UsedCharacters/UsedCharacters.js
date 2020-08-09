@@ -8,7 +8,7 @@ const UsedCharacters = () => {
   return (
     <div className="UsedCharacters">
       {usedCharacters.map((character) => (
-        <UsedCharacter character={character} />
+        <UsedCharacter key={character} character={character} />
       ))}
     </div>
   );
