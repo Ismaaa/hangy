@@ -8,7 +8,7 @@ const KeyboardTile = ({ value, addCharacterToList }) => {
 
   useEffect(() => {
     if (game.usedCharacters.includes(value)) setIsDisabled(true);
-  }, [game]);
+  }, [game, value]);
 
   return (
     <button

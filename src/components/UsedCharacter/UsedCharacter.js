@@ -8,7 +8,7 @@ const UsedCharacter = ({ character }) => {
 
   useEffect(() => {
     if (word.includes(character)) setIsCorrect(true);
-  }, [word]);
+  }, [word, character]);
 
   return (
     <span
