@@ -62,19 +62,35 @@ export const gameMiddleware = ({ dispatch, getState }) => (next) => (
 ) => {
   next(action);
 
-  if (action.type === ADD_CHARACTER) {
-    const { word, usedCharacters } = getState().game;
-    const matches = [];
+  switch (action.type) {
+    case ADD_CORRECT_CHARACTER: {
+      const { word, correctCharacters } = getState().game;
+      const matches = [];
 
-    word.split('').forEach((character) => {
-      matches.push(usedCharacters.includes(character));
-    });
-
-    if (matches.every((match) => match === true)) {
-      dispatch({
-        type: GAME_OVER,
-        payload: true,
+      word.split('').forEach((character) => {
+        matches.push(correctCharacters.includes(character));
       });
+
+      if (matches.every((match) => match === true)) {
+        dispatch({
+          type: GAME_OVER,
+          payload: true,
+        });
+      }
+      break;
     }
+    case ADD_INCORRECT_CHARACTER: {
+      const { incorrectCharacters } = getState().game;
+
+      if (incorrectCharacters.length > 10) {
+        dispatch({
+          type: GAME_OVER,
+          payload: false,
+        });
+      }
+      break;
+    }
+    default:
+      break;
   }
 };
