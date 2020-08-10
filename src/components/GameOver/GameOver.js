@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 const GameOver = () => {
-  const { gameWon } = useSelector((store) => store.game);
+  const { word, gameWon } = useSelector((store) => store.game);
 
   const reloadPage = () => {
     window.location.reload();
@@ -35,6 +35,7 @@ const GameOver = () => {
       >
         {gameWon ? 'YOU WON' : 'YOU LOST'}
       </h1>
+      <h2>WORD: {word}</h2>
       <button type="button" className="GameOver__button" onClick={reloadPage}>
         Play Again
       </button>
