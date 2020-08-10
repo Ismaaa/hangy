@@ -1,6 +1,6 @@
 // constants
 const INITIAL_STATE = {
-  word: 'ISMAIL',
+  word: null,
   usedCharacters: [],
   correctCharacters: [],
   incorrectCharacters: [],
@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   gameWon: null,
 };
 
+const SET_WORD = 'SET_WORD';
 const ADD_CHARACTER = 'ADD_CHARACTER';
 const ADD_CORRECT_CHARACTER = 'ADD_CORRECT_CHARACTER';
 const ADD_INCORRECT_CHARACTER = 'ADD_INCORRECT_CHARACTER';
@@ -16,6 +17,8 @@ const GAME_OVER = 'GAME_OVER';
 // reducer
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case SET_WORD:
+      return { ...state, word: action.payload };
     case ADD_CORRECT_CHARACTER:
       return {
         ...state,
@@ -42,6 +45,13 @@ export default function reducer(state = INITIAL_STATE, action) {
 }
 
 // actions
+export const setWord = (payload) => async (dispatch) => {
+  dispatch({
+    type: SET_WORD,
+    payload,
+  });
+};
+
 export const addCorrectCharacter = (payload) => async (dispatch) => {
   dispatch({
     type: ADD_CORRECT_CHARACTER,

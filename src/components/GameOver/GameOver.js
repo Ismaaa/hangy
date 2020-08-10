@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { normalizeText } from 'normalize-text';
 
 const GameOver = () => {
   const { gameWon } = useSelector((store) => store.game);
