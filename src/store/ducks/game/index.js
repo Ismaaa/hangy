@@ -1,17 +1,31 @@
 // constants
 const INITIAL_STATE = {
-  word: 'HIPPOPOTOMONSTROSESQUIPPEDALIOPHOBIE',
+  word: 'ISMAIL',
   usedCharacters: [],
+  correctCharacters: [],
+  incorrectCharacters: [],
   gameOver: false,
   gameWon: null,
 };
 
 const ADD_CHARACTER = 'ADD_CHARACTER';
+const ADD_CORRECT_CHARACTER = 'ADD_CORRECT_CHARACTER';
+const ADD_INCORRECT_CHARACTER = 'ADD_INCORRECT_CHARACTER';
 const GAME_OVER = 'GAME_OVER';
 
 // reducer
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case ADD_CORRECT_CHARACTER:
+      return {
+        ...state,
+        correctCharacters: [...state.correctCharacters, action.payload],
+      };
+    case ADD_INCORRECT_CHARACTER:
+      return {
+        ...state,
+        incorrectCharacters: [...state.incorrectCharacters, action.payload],
+      };
     case ADD_CHARACTER: {
       const { usedCharacters } = state;
 
@@ -28,9 +42,16 @@ export default function reducer(state = INITIAL_STATE, action) {
 }
 
 // actions
-export const addCharacter = (payload) => async (dispatch) => {
+export const addCorrectCharacter = (payload) => async (dispatch) => {
   dispatch({
-    type: ADD_CHARACTER,
+    type: ADD_CORRECT_CHARACTER,
+    payload,
+  });
+};
+
+export const addIncorrectCharacter = (payload) => async (dispatch) => {
+  dispatch({
+    type: ADD_INCORRECT_CHARACTER,
     payload,
   });
 };

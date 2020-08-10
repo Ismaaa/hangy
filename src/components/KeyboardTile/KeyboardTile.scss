@@ -13,20 +13,56 @@
   margin-left: -3px;
   cursor: pointer;
   font-size: inherit;
+  position: relative;
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-    background-color: var(--color-warning);
-  }
-
-  &--disabled {
     background-color: var(--color-gray);
   }
 
-  &--disabled:hover {
-    background-color: var(--color-gray-dark);
+  &--correct, &--incorrect {
+    background-color: var(--color-gray);
+  }
+
+  &--correct:before, &--correct:after {
+    content: '';
+    position: absolute;
+    border: 3px solid var(--color-green);
+    border-radius: 50%;
+    z-index: 20;
+    overflow: hidden;
+  }
+
+  &--correct:before {
+    width: 110%;
+    height: 130%;
+  }
+
+  &--correct:after {
+    width: 120%;
+    height: 120%;
+  }
+
+  &--incorrect:before, &--incorrect:after {
+    content: '';
+    position: absolute;
+    border-top: 5px solid var(--color-warning);
+    top: 50%;
+    z-index: 20;
+    width: 120%;
+    height: 5px;
+    overflow: hidden;
+  }
+
+
+  &--incorrect:before {
+    transform: skewY(45deg);
+  }
+
+  &--incorrect:after {
+    transform: skewY(140deg);
   }
 }

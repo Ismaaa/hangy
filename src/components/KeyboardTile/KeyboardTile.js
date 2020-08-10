@@ -3,18 +3,23 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 const KeyboardTile = ({ value, addCharacterToList }) => {
-  const { game } = useSelector((store) => store);
-  const [isDisabled, setIsDisabled] = useState(false);
+  const { correctCharacters, incorrectCharacters } = useSelector(
+    (store) => store.game,
+  );
+  const [classModifier, setClassModifier] = useState('');
 
   useEffect(() => {
-    if (game.usedCharacters.includes(value)) setIsDisabled(true);
-  }, [game, value]);
+    if (correctCharacters.includes(value))
+      setClassModifier('KeyboardTile--correct');
+    if (incorrectCharacters.includes(value))
+      setClassModifier('KeyboardTile--incorrect');
+  }, [value, correctCharacters, incorrectCharacters]);
 
   return (
     <button
       type="button"
       onClick={() => addCharacterToList(value)}
-      className={`KeyboardTile ${isDisabled ? 'KeyboardTile--disabled' : ''}`}
+      className={`KeyboardTile ${classModifier}`}
     >
       {value}
     </button>
