@@ -18,6 +18,7 @@ const Keyboard = () => {
 
   const addCharacterToList = (character) => {
     // checks
+    if (character === '') return;
     if (!FLATTEN_ABECEDARY.includes(character)) return;
     if (correctCharacters.includes(character)) return;
     if (incorrectCharacters.includes(character)) return;
