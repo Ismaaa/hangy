@@ -6,7 +6,7 @@ import GameOver from '../GameOver';
 import Word from '../Word';
 
 const Hangy = () => {
-  const { gameOver, gameWon } = useSelector((store) => store.game);
+  const { gameOver } = useSelector((store) => store.game);
 
   const renderMainScreen = () => {
     if (gameOver) return <GameOver />;
