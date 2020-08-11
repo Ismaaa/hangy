@@ -11,11 +11,17 @@ const rootReducer = combineReducers({
   game: gameReducer,
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middlewares = [thunk, gameMiddleware];
+let composeEnhancers = compose();
+
+if (process.env.NODE_ENV === 'development') {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  middlewares.push(logMiddleware);
+}
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(thunk, logMiddleware, gameMiddleware)),
+  composeEnhancers(applyMiddleware(...middlewares)),
 );
 
 export default store;
