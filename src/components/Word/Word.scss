@@ -1,22 +1,16 @@
 .Word {
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .Word__character {
-  @media screen and (min-width: 1440px) {
-    font-size: 50px;
-    font-weight: 700;
-    color: var(--color-secondary);
-  }
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--color-secondary);
 
-  @media screen and (min-width: 1440px) {
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+  &:not(:last-child) {
+    margin-right: 20px;
   }
 }
