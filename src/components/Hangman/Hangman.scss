@@ -1,0 +1,115 @@
+.Hangman {
+  position: relative;
+  width: 400px;
+  height: 400px;
+
+  background-color: red;
+}
+
+.Hangman__footer {
+  width: 100px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
+.Hangman__bar--main {
+  width: 400px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  bottom: 198px;
+  left: -100px;
+  transform: rotate(90deg);
+}
+
+.Hangman__bar--top {
+  width: 150px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 0;
+  left: 100px;
+}
+
+.Hangman__bar--rope {
+  width: 75px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 35px;
+  left: 215px;
+  transform: rotate(90deg);
+}
+
+.Hangman__person--head {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 50px;
+  left: 228px;
+  border-radius: 50%;
+}
+
+.Hangman__person--body {
+  width: 150px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 130px;
+  left: 178px;
+  transform: rotate(90deg);
+}
+
+.Hangman__person--leftArm {
+  width: 35px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 125px;
+  left: 220px;
+  transform: rotate(15deg);
+}
+
+.Hangman__person--rightArm {
+  width: 35px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 125px;
+  left: 250px;
+  transform: rotate(-15deg);
+}
+
+.Hangman__person--leftLeg {
+  width: 65px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 228px;
+  left: 202px;
+  transform: rotate(-55deg);
+}
+
+.Hangman__person--rightLeg {
+  width: 65px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 228px;
+  left: 240px;
+  transform: rotate(55deg);
+}
+
+.Hangman__person--diagonal {
+  width: 50px;
+  height: 5px;
+  background-color: var(--color-secondary-darker);
+  position: absolute;
+  top: 22px;
+  left: 90px;
+  transform: rotate(-55deg);
+}
