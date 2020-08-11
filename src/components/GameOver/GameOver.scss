@@ -1,12 +1,14 @@
 .GameOver {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 65%;
-  height: 240px;
-  margin: 60px auto 0;
-  border-radius: 15px;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 65%;
+    height: 240px;
+    margin: 60px auto 0;
+    border-radius: 15px;
+  }
 
   &--primary {
     background-color: var(--color-primary);
@@ -18,8 +20,10 @@
 }
 
 .GameOver__title {
-  font-size: 60px;
-  font-weight: 700;
+  @media screen and (min-width: 1440px) {
+    font-size: 60px;
+    font-weight: 700;
+  }
 
   &--secondary {
     color: var(--color-secondary);
@@ -31,13 +35,15 @@
 }
 
 .GameOver__button {
-  background-color: var(--color-warning);
-  padding: 15px 30px;
-  font-size: inherit;
-  font-family: inherit;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  color: var(--color-secondary);
-  border: 2px solid var(--color-secondary);
+  @media screen and (min-width: 1440px) {
+    background-color: var(--color-warning);
+    padding: 15px 30px;
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+  }
 }
