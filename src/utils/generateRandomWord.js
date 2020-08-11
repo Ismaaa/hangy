@@ -9,6 +9,7 @@ export default function generateRandomWord() {
   }
 
   // special chars
+  // eslint-disable-next-line no-useless-escape
   if (/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(randomWord)) {
     randomWord = generateRandomWord();
   }

@@ -13,7 +13,7 @@ const Hangy = () => {
 
   useEffect(() => {
     dispatch(setWord(generateRandomWord()));
-  }, []);
+  }, [dispatch]);
 
   const renderMainScreen = () => {
     if (!word) return <div />;

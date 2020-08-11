@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { normalizeText } from 'normalize-text';
 import { useDispatch, useSelector } from 'react-redux';
 import KeyboardTile from '../KeyboardTile';
@@ -16,26 +16,32 @@ const Keyboard = () => {
     (store) => store.game,
   );
 
-  const addCharacterToList = (character) => {
-    // checks
-    if (character === '') return;
-    if (!FLATTEN_ABECEDARY.includes(character)) return;
-    if (correctCharacters.includes(character)) return;
-    if (incorrectCharacters.includes(character)) return;
+  const addCharacterToList = useCallback(
+    (character) => {
+      // checks
+      if (character === '') return;
+      if (!FLATTEN_ABECEDARY.includes(character)) return;
+      if (correctCharacters.includes(character)) return;
+      if (incorrectCharacters.includes(character)) return;
 
-    //
-    if (word.includes(character)) {
-      dispatch(addCorrectCharacter(character));
-    } else {
-      dispatch(addIncorrectCharacter(character));
-    }
-  };
+      //
+      if (word.includes(character)) {
+        dispatch(addCorrectCharacter(character));
+      } else {
+        dispatch(addIncorrectCharacter(character));
+      }
+    },
+    [dispatch, word, correctCharacters, incorrectCharacters],
+  );
 
-  const handleKeyPress = (event) => {
-    const normalizedCharacter = normalizeText(event.key).toUpperCase();
+  const handleKeyPress = useCallback(
+    (event) => {
+      const normalizedCharacter = normalizeText(event.key).toUpperCase();
 
-    addCharacterToList(normalizedCharacter);
-  };
+      addCharacterToList(normalizedCharacter);
+    },
+    [addCharacterToList],
+  );
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
@@ -43,7 +49,7 @@ const Keyboard = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [word, correctCharacters, incorrectCharacters]);
+  }, [handleKeyPress]);
 
   return (
     <div className="Keyboard">

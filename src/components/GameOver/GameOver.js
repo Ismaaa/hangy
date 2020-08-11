@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 const GameOver = () => {
@@ -8,11 +8,11 @@ const GameOver = () => {
     window.location.reload();
   };
 
-  const handleEnterKeyPress = (event) => {
+  const handleEnterKeyPress = useCallback((event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       reloadPage();
     }
-  };
+  }, []);
 
   useEffect(() => {
     document.addEventListener('keypress', handleEnterKeyPress);
@@ -20,7 +20,7 @@ const GameOver = () => {
     return () => {
       document.removeEventListener('keypress', handleEnterKeyPress);
     };
-  }, []);
+  }, [handleEnterKeyPress]);
 
   return (
     <div
