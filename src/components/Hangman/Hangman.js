@@ -1,19 +1,30 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const Hangman = () => (
-  <div className="Hangman">
-    <span className="Hangman__footer" />
-    <span className="Hangman__bar--main" />
-    <span className="Hangman__bar--top" />
-    <span className="Hangman__bar--rope" />
-    <span className="Hangman__person--head" />
-    <span className="Hangman__person--body" />
-    <span className="Hangman__person--leftArm" />
-    <span className="Hangman__person--rightArm" />
-    <span className="Hangman__person--leftLeg" />
-    <span className="Hangman__person--rightLeg" />
-    <span className="Hangman__person--diagonal" />
-  </div>
-);
+const HANGMAN_DRAWING = [
+  'Hangman__footer',
+  'Hangman__bar--main',
+  'Hangman__bar--top',
+  'Hangman__bar--diagonal',
+  'Hangman__bar--rope',
+  'Hangman__person--head',
+  'Hangman__person--body',
+  'Hangman__person--leftArm',
+  'Hangman__person--rightArm',
+  'Hangman__person--leftLeg',
+  'Hangman__person--rightLeg',
+];
+
+const Hangman = () => {
+  const { incorrectCharacters } = useSelector((store) => store.game);
+
+  const renderHangmanParts = () => {
+    return incorrectCharacters.map((character, index) => (
+      <span className={`${HANGMAN_DRAWING[index]}`} />
+    ));
+  };
+
+  return <div className="Hangman">{renderHangmanParts()}</div>;
+};
 
 export default Hangman;
