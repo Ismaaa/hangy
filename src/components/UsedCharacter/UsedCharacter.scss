@@ -1,8 +1,6 @@
 .UsedCharacter {
-  @media screen and (min-width: 1440px) {
-    font-size: 50px;
-    font-weight: 700;
-  }
+  font-size: 50px;
+  font-weight: 700;
 
   &--primary {
     color: var(--color-primary);

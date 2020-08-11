@@ -1,16 +1,12 @@
 .Keyboard {
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 980px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 980px;
 }
 
 .Keyboard__keyboardLine {
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }
