@@ -43,7 +43,7 @@ const Keyboard = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, []);
+  }, [word, correctCharacters, incorrectCharacters]);
 
   return (
     <div className="Keyboard">
